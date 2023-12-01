@@ -1,6 +1,6 @@
 Flask
 gunicorn
 requests
-secure_filename
+Werkzeug
 cv2
 os
