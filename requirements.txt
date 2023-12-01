@@ -1,0 +1,6 @@
+Flask
+gunicorn
+requests
+secure_filename
+cv2
+os
