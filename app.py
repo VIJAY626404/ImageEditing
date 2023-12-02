@@ -1,6 +1,7 @@
 # pip3 install flask opencv-python
 from flask import Flask, render_template, request, flash
 from werkzeug.utils import secure_filename
+from gevent.pywsgi import WSGIServer
 import cv2
 import os
 
@@ -86,4 +87,10 @@ def edit():
     return render_template("index.html")
 
 
-app.run(debug=True,port =5001)
+# app.run(debug=True,port =5001)
+if __name__ == '__main__':
+    # Debug/Development
+    app.run(debug=True, host="0.0.0.0", port="5001")
+    # Production
+    http_server = WSGIServer(('', 5001), app)
+    http_server.serve_forever()
